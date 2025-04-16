@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Category } from '@/models'
+import type { Category } from '@/models/types'
 import DropdownItem from './DropdownItem.vue'
 
 const props = defineProps<{

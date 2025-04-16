@@ -2,6 +2,7 @@ export interface Category {
   id: number
   name: string
   path: string
+  type: string
 }
 
 export interface Movie {
@@ -19,4 +20,11 @@ export interface Movie {
   adult: boolean
   video: boolean
   genre_names?: string[]
+}
+
+export interface Input {
+  modelValue: string
+  type?: string
+  placeholder?: string
+  customClass?: string
 }

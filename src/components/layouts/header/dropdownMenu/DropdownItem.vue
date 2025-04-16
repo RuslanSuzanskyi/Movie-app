@@ -1,11 +1,11 @@
 <template>
-  <RouterLink :to="`${category.path}`" class="dropdown__link">
+  <RouterLink :to="`/movie/${category.path}`" class="dropdown__link">
     {{ category.name }}
   </RouterLink>
 </template>
 
 <script setup lang="ts">
-import type { Category } from '@/models'
+import type { Category } from '@/models/types'
 import { RouterLink } from 'vue-router'
 
 const props = defineProps<{

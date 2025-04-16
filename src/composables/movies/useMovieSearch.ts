@@ -1,4 +1,4 @@
-import type { Movie } from '@/models'
+import type { Movie } from '@/models/types'
 import { api } from '@/services/api'
 import { ref, watch } from 'vue'
 

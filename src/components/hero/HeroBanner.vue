@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SearchInput from '../ui/SearchInput.vue'
+import SearchForm from '../ui/SearchForm.vue'
 </script>
 
 <template>
@@ -7,7 +7,9 @@ import SearchInput from '../ui/SearchInput.vue'
     <div class="title">
       <h2>Welcome.</h2>
       <h3>Millions of movies, TV shows and people to discover. Explore now.</h3>
-      <SearchInput />
+    </div>
+    <div class="search">
+      <SearchForm />
     </div>
   </div>
 </template>
@@ -18,7 +20,10 @@ import SearchInput from '../ui/SearchInput.vue'
 }
 .title {
   width: 100%;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
+}
+.search {
+  width: 100%;
 }
 h2 {
   font-size: 4.8rem;

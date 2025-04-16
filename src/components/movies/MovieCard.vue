@@ -1,25 +1,33 @@
 <script setup lang="ts">
-import type { Movie } from '@/models'
+import type { Movie } from '@/models/types'
 
 const props = defineProps<{
   movie: Movie
+  isLoading?: boolean
 }>()
 </script>
 
 <template>
   <article class="movie-card">
-    <RouterLink :to="`/movie/${movie.id}`">
-      <img
-        :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-        :alt="movie.title"
-        class="movie-card__img"
-      />
-    </RouterLink>
-    <div class="movie-card__details">
+    <template v-if="isLoading">
+      <div class="movie-card__skeleton"></div>
+      <div class="movie-card__skeleton-title"></div>
+    </template>
+
+    <template v-else>
       <RouterLink :to="`/movie/${movie.id}`">
-        <h3 class="movie-card__title">{{ movie.title }}</h3>
+        <img
+          :src="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+          :alt="movie.title"
+          class="movie-card__img"
+        />
       </RouterLink>
-    </div>
+      <div class="movie-card__details">
+        <RouterLink :to="`/movie/${movie.id}`" class="movie-card__title">
+          {{ movie.title }}
+        </RouterLink>
+      </div>
+    </template>
   </article>
 </template>
 
@@ -30,6 +38,7 @@ const props = defineProps<{
   max-width: 100%;
   background: white;
   border: 0.1rem solid oklch(0.928 0.006 264.531);
+  border-bottom: none;
   border-radius: 0.8rem;
   height: 100%;
   box-shadow: 0 0.2rem 0.8rem rgb(0 0 0 / 0.1);
@@ -46,6 +55,6 @@ const props = defineProps<{
 }
 .movie-card__title {
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: bold;
 }
 </style>

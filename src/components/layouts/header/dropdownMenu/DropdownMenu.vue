@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import DropdownList from './DropdownList.vue'
-import type { Category } from '@/models'
+import type { Category } from '@/models/types'
 import Button from '@/components/ui/Button.vue'
 
 const props = defineProps<{

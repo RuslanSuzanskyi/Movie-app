@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Movie } from '@/models'
+import type { Movie } from '@/models/types'
 import MovieCard from './MovieCard.vue'
 
 const props = defineProps<{
@@ -10,7 +10,13 @@ const props = defineProps<{
 <template>
   <ul class="movie-list">
     <li v-for="movie in movies" :key="movie.id">
-      <MovieCard :movie="movie" />
+      <Suspense>
+        <MovieCard :movie="movie" />
+
+        <template #fallback>
+          <div>loading...</div>
+        </template>
+      </Suspense>
     </li>
   </ul>
 </template>
@@ -21,6 +27,7 @@ const props = defineProps<{
   gap: 1rem;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
+  padding: 2rem 0;
 }
 @media (max-width: 1200px) {
   .movie-list {

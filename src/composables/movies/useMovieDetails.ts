@@ -14,7 +14,7 @@ export const useMovieDetails = () => {
 
     try {
       const response = await api(`/3/movie/${route.params.id}`)
-      movie.value = response.data
+      movie.value = response?.data
     } catch (err) {
       error.value = 'Failed to fetch movie details'
     } finally {
